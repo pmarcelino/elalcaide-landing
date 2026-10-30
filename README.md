@@ -8,6 +8,7 @@ Custo: 0 €. GitHub Pages serve o repositório público [`pmarcelino/elalcaide-
 
 - **Publicar:** `git commit` + `git push`. O Pages reconstrói em ~1 min.
 - **Domínio:** ficheiro `CNAME` (`elalcaide.investments`) + definição *Custom domain* no repo. HTTPS por certificado Let's Encrypt emitido pelo GitHub, *Enforce HTTPS* ligado.
+  - Se o certificado não aparecer (≈30 min sem emissão, como a 30/out/2026), remover e voltar a pôr o domínio: `gh api -X PUT repos/pmarcelino/elalcaide-landing/pages -F cname=null`, depois `-f cname=elalcaide.investments`, e ligar `-F https_enforced=true` quando `https_certificate.state` for `approved`.
 - **DNS** (na Cloudflare; a GoDaddy só regista o domínio — ver `../email-contato/README.md`). Todos **DNS only** (proxy desligado), senão o GitHub não consegue emitir/renovar o certificado:
 
 | Tipo | Nome | Conteúdo |
