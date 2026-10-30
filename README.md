@@ -1,6 +1,6 @@
 # Landing page — elalcaide.investments
 
-Static site (HTML + CSS, no build step). Copy source: `guidelines.md`. Logo source: `el-alcaide-logo.PNG`; web assets in `assets/`.
+Site estático (HTML + CSS, sem build). Texto: `guidelines.md`. Logótipo original: `el-alcaide-logo.PNG`; versões web em `assets/` (`logo-mark.png`, `favicon.svg`, `apple-touch-icon.png`, `og-image.png`).
 
 ## Deploy
 
@@ -8,7 +8,7 @@ Custo: 0 €. GitHub Pages serve o repositório público [`pmarcelino/elalcaide-
 
 - **Publicar:** `git commit` + `git push`. O Pages reconstrói em ~1 min.
 - **Domínio:** ficheiro `CNAME` (`elalcaide.investments`) + definição *Custom domain* no repo. HTTPS por certificado Let's Encrypt emitido pelo GitHub, *Enforce HTTPS* ligado.
-  - Se o certificado não aparecer (≈30 min sem emissão, como a 30/out/2026), remover e voltar a pôr o domínio: `gh api -X PUT repos/pmarcelino/elalcaide-landing/pages -F cname=null`, depois `-f cname=elalcaide.investments`, e ligar `-F https_enforced=true` quando `https_certificate.state` for `approved`.
+  - Se o certificado não aparecer (≈30 min sem emissão, como a 30/out/2026), remover e voltar a pôr o domínio: `gh api -X PUT repos/pmarcelino/elalcaide-landing/pages -F cname=null`, depois `-f cname=elalcaide.investments`, e ligar `-F https_enforced=true` quando `https_certificate.state` for `approved`. Isto cria commits `Delete CNAME`/`Create CNAME` no GitHub → fazer `git pull --rebase` antes do próximo push.
 - **DNS** (na Cloudflare; a GoDaddy só regista o domínio — ver `../email-contato/README.md`). Todos **DNS only** (proxy desligado), senão o GitHub não consegue emitir/renovar o certificado:
 
 | Tipo | Nome | Conteúdo |
@@ -23,4 +23,8 @@ Custo: 0 €. GitHub Pages serve o repositório público [`pmarcelino/elalcaide-
 
 ## Portfólio
 
-Secção *Nossos Investimentos* (`index.html`, lista `.portfolio`). Para um novo projeto, duplicar o `<li class="portfolio-item">`. Não publicar preços, números de unidade nem estado contratual.
+Secção *Nossos Investimentos* (`index.html`, lista `.portfolio`). Para um novo projeto, duplicar o `<li class="portfolio-item">`. Não publicar preços, números de unidade nem estado contratual. Ilustrações em SVG próprio; não usar fotos de incorporadoras sem autorização.
+
+| # | Projeto | Fonte dos dados |
+|---|---|---|
+| 01 | Inside Brooklin (torre de studios do Condomínio Infinity Brooklin, Teixeira Duarte) — 2 studios de 21 m², pronto 2026 | [Página Teixeira Duarte](https://www.teixeiraduarte.com.br/imoveis/inside-brooklin/) |
